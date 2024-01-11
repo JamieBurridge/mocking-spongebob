@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-family: "Montserrat", sans-serif;
+    --font-bold: 500;
+    --font-size: 16px;
+
+    --primary-color: #111;
+    --secondary-color: #f5f5f5;
+
+    --spacing-tiny: 0.25rem;
+    --spacing-small: 0.5rem;
+    --spacing-medium: 1rem;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+
+   padding: 0 var(--spacing-medium);
+}
+
+header h1 {
+   font-size: 3rem; 
+   font-weight: var(--font-bold);
+   padding: var(--spacing-medium) 0;
+}
+
+/* Make the meme  */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-tiny);
+
+    padding-bottom: var(--spacing-medium);
+    max-width: 500px;
+}
+
+main > label {
+    font-size: 1.2rem;
+}
+
+main > textarea {
+    resize: none;
+    padding: var(--spacing-tiny);
+}
+
+main > button {
+    border: 1px solid var(--primary-color);
+    height: 2rem;
+    cursor: pointer;
+}
+
+/* Meme Output */
+section {
+    display: none;
+    width: 500px;
+
+    border: 2px solid var(--primary-color);
+    background-color: #fff;
+}
+
+section > #meme_image {
+    width: 100%;
+}
+
+section > #output_meme_text {
+    font-weight: var(--font-bold);
+
+    padding: var(--spacing-tiny);
+}
+
+
