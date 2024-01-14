@@ -587,12 +587,13 @@ window.onload = ()=>{
     const outputSection = document.getElementsByTagName("section")[0];
     const outputTextEl = document.getElementById("output_meme_text");
     // Click button and create meme
-    buttonEl.addEventListener("click", ()=>{
+    buttonEl.addEventListener("click", async ()=>{
         const memeText = makeAlternatingCase(textareaEl.value);
         outputSection.style.display = "block";
         outputTextEl.textContent = memeText;
         // Convert HTML to image and download
-        (0, _fileSaver.saveAs)(convertElementToImage(outputSection), "mocking-spongebob-meme.png");
+        const imageToDownload = await convertElementToImage(outputSection);
+        (0, _fileSaver.saveAs)(imageToDownload, "mocking-spongebob-meme.png");
     });
     // Make meme text
     function makeAlternatingCase(text) {
@@ -602,10 +603,8 @@ window.onload = ()=>{
         return alternateCaseText;
     }
     // Convert element to image
-    function convertElementToImage(element) {
-        (0, _htmlToImage.toPng)(element).then(function(dataUrl) {
-            return dataUrl;
-        });
+    async function convertElementToImage(element) {
+        return await (0, _htmlToImage.toPng)(element);
     }
 };
 
